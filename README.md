@@ -6,8 +6,13 @@ A client that works with Upstash with the DX of @vercel/kv.
 
 ```sh
 npm install upstash-kv
-
 ```
+
+## Purpose
+
+![](https://github.com/DestroyerXyz/upstash-kv/raw/main/vercel-upstash-comparison.png)
+
+Vercel KV is just a whitelabeled implementation of Upstash Redis and uses the same HTTP API. This package provides feature parity with the DX of @vercel/kv.
 
 ## Usage
 
@@ -68,7 +73,7 @@ await kv.set("key", "value");
 
 ## Docs
 
-See Vercel's docs [documentation](https://www.vercel.com/docs/storage/vercel-kv) for details.
+See Vercel's [documentation](https://www.vercel.com/docs/storage/vercel-kv) for details.
 
 ## A note for Vite users
 
