@@ -1,6 +1,6 @@
 # upstash-kv
 
-A client that works with Upstash with the DX of @vercel/kv.
+### Simple Upstash Redis client based on @vercel/kv
 
 ## Install
 
@@ -12,7 +12,9 @@ npm install upstash-kv
 
 ![](https://github.com/DestroyerXyz/upstash-kv/raw/main/vercel-upstash-comparison.png)
 
-Vercel KV is just a whitelabeled implementation of Upstash Redis and uses the same HTTP API. This package provides feature parity with the DX of @vercel/kv.
+Vercel KV is a whitelabeled implementation of Upstash Redis and uses the same HTTP API.
+
+This package provides feature parity with the DX of Vercel KV for Upstash Redis.
 
 ## Usage
 
