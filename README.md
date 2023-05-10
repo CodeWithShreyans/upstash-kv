@@ -111,7 +111,7 @@ export default defineConfig(({ mode }) => {
 
 ```diff
 import { createClient } from 'upstash-kv';
-+ import { KV_URL, UPSTASH_REDIS_REST_TOKEN } from '$env/static/private';
++ import { UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN } from '$env/static/private';
 
 const kv = createClient({
 -  url: 'https://<hostname>.redis.vercel-storage.com',
