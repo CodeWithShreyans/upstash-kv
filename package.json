@@ -1,6 +1,6 @@
 {
     "name": "upstash-kv",
-    "version": "0.1.2",
+    "version": "0.1.2-2",
     "description": "Simple Upstash Redis client based on @vercel/kv",
     "homepage": "https://github.com/destroyerxyz/upstash-kv.git",
     "repository": {
