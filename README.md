@@ -91,13 +91,13 @@ pnpm install --save-dev dotenv dotenv-expand
 
 ```js
 // vite.config.js
-import dotenvExpand from 'dotenv-expand';
-import { loadEnv, defineConfig } from 'vite';
+import dotenvExpand from "dotenv-expand";
+import { loadEnv, defineConfig } from "vite";
 
 export default defineConfig(({ mode }) => {
   // This check is important!
-  if (mode === 'development') {
-    const env = loadEnv(mode, process.cwd(), '');
+  if (mode === "development") {
+    const env = loadEnv(mode, process.cwd(), "");
     dotenvExpand.expand({ parsed: env });
   }
 
@@ -110,15 +110,15 @@ export default defineConfig(({ mode }) => {
 2. You can provide the credentials explicitly, instead of relying on a zero-config setup. For example, this is how you could create a client in SvelteKit, which makes private environment variables available via `$env/static/private`:
 
 ```diff
-import { createClient } from 'upstash-kv';
-+ import { UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN } from '$env/static/private';
+import { createClient } from "upstash-kv";
++ import { UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN } from "$env/static/private";
 
 const kv = createClient({
--  url: 'https://<hostname>.redis.vercel-storage.com',
--  token: '<token>',
+-  url: "https://<endpoint_name>.upstash.io",
+-  token: "<token>",
 +  url: UPSTASH_REDIS_REST_URL,
 +  token: UPSTASH_REDIS_REST_TOKEN,
 });
 
-await kv.set('key', 'value');
+await kv.set("key", "value");
 ```
