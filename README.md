@@ -60,7 +60,7 @@ for await (const key of kv.scanIterator()) {
 
 ### Custom Environment Variables
 
-By default `upstash-kv` reads the `UPSTASH_REST_API_URL` and `UPSTASH_REST_API_TOKEN` environment variables. Use the following function in case you need to define custom values
+By default `upstash-kv` reads the `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` environment variables. Use the following function in case you need to define custom values
 
 ```js
 import { createClient } from "upstash-kv";
@@ -111,13 +111,13 @@ export default defineConfig(({ mode }) => {
 
 ```diff
 import { createClient } from 'upstash-kv';
-+ import { KV_URL, UPSTASH_REST_API_TOKEN } from '$env/static/private';
++ import { KV_URL, UPSTASH_REDIS_REST_TOKEN } from '$env/static/private';
 
 const kv = createClient({
 -  url: 'https://<hostname>.redis.vercel-storage.com',
 -  token: '<token>',
-+  url: UPSTASH_REST_API_URL,
-+  token: UPSTASH_REST_API_TOKEN,
++  url: UPSTASH_REDIS_REST_URL,
++  token: UPSTASH_REDIS_REST_TOKEN,
 });
 
 await kv.set('key', 'value');
