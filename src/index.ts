@@ -1,6 +1,6 @@
 import { createClient, VercelKV } from "@vercel/kv";
 
-export default new Proxy(
+const kv = new Proxy(
     {},
     {
         get(_, prop) {
@@ -31,4 +31,5 @@ export default new Proxy(
     }
 ) as VercelKV;
 
-export { createClient, VercelKV };
+export { kv, createClient, VercelKV };
+export default kv;
