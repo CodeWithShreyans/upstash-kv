@@ -28,9 +28,9 @@ yarn add upstash-kv
 
 ## Purpose
 
-![](https://github.com/DestroyerXyz/upstash-kv/raw/main/vercel-upstash-comparison.png)
-
 Vercel KV is a whitelabeled implementation of Upstash Redis and uses the same API.
+
+![](https://github.com/DestroyerXyz/upstash-kv/raw/main/images/vercel-upstash-comparison.png)
 
 This package provides feature parity with the DX of Vercel KV for Upstash Redis.
 
@@ -76,9 +76,13 @@ for await (const key of kv.scanIterator()) {
 }
 ```
 
-### Custom Environment Variables
+### Environment Variables
 
-By default `upstash-kv` reads the `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` environment variables. Use the following function in case you need to define custom values
+Get the `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` from your Upstash console and set them in your `.env` file. These are read by default.
+
+![](https://github.com/DestroyerXyz/upstash-kv/raw/main/images/env-vars.png)
+
+Use the following function in case you need to define custom values
 
 ```js
 import { createClient } from "upstash-kv";
