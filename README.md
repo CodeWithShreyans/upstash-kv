@@ -95,6 +95,25 @@ const kv = createClient({
 await kv.set("key", "value");
 ```
 
+### Automatic Deserialization
+
+The default `kv` client automatically deserializes values returned from the database via `JSON.parse`. If this behaviour is undesired, create a custom KV client via the `createClient` method with `automaticDeserialization: false`. All data will be returned as strings.
+
+```js
+import { kv, createClient } from "upstash-kv";
+
+const customKvClient = createClient({
+    url: process.env.UPSTASH_REDIS_REST_URL,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN,
+    automaticDeserialization: false,
+});
+
+await customKvClient.set("object", { hello: "world" });
+
+console.log(await kv.get("object")); // { hello: 'world' }
+console.log(await customKvClient.get("object")); // '{"hello":"world"}'
+```
+
 ## Docs
 
 See Vercel's [documentation](https://www.vercel.com/docs/storage/vercel-kv) for details.
@@ -143,4 +162,22 @@ const kv = createClient({
 });
 
 await kv.set("key", "value");
+```
+
+## FAQ
+
+### Does the `upstash-kv` package support [Redis Streams](https://redis.io/docs/data-types/streams/)?
+
+No, the `upstash-kv` package does not support Redis Streams. To use Redis Streams with Upstash Redis, you must connect directly to the database server via packacges like [`io-redis`](https://github.com/redis/ioredis) or [`node-redis`](https://github.com/redis/node-redis).
+
+```js
+import { createClient } from "redis";
+
+const client = createClient({
+    url: process.env.UPSTASH_REDIS_REST_URL,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN,
+});
+
+await client.connect();
+await client.xRead({ key: "mystream", id: "0" }, { COUNT: 2 });
 ```
