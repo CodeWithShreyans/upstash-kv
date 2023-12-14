@@ -1,4 +1,5 @@
-import { createClient, VercelKV } from "@vercel/kv";
+import { createClient, VercelKV as UpstashKV } from "@vercel/kv";
+import { RedisConfigNodejs } from "@upstash/redis";
 
 const kv = new Proxy(
     {},
@@ -29,7 +30,9 @@ const kv = new Proxy(
             return Reflect.get(kv, prop);
         },
     }
-) as VercelKV;
+) as UpstashKV;
 
-export { kv, createClient, VercelKV };
+const createKVClient = createClient as (config: RedisConfigNodejs) => UpstashKV;
+
+export { kv, createKVClient as createClient, UpstashKV };
 export default kv;

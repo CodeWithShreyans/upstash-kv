@@ -1,6 +1,6 @@
 {
     "name": "upstash-kv",
-    "version": "0.2.3-1",
+    "version": "1.0.1",
     "description": "Simple Upstash Redis client based on @vercel/kv",
     "homepage": "https://github.com/destroyerxyz/upstash-kv.git",
     "repository": {
@@ -12,12 +12,13 @@
     "type": "module",
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
             "import": {
+                "types": "./dist/index.d.ts",
                 "node": "./dist/index.js",
                 "default": "./dist/index.js"
             },
             "require": {
+                "types": "./dist/index.d.cts",
                 "node": "./dist/index.cjs",
                 "default": "./dist/index.cjs"
             }
@@ -34,26 +35,21 @@
         "lint": "eslint --max-warnings=0 .",
         "prepublishOnly": "pnpm run build",
         "prettier-check": "prettier --check .",
-        "publint": "npx publint",
-        "type-check": "tsc --noEmit",
-        "release": "pnpm build && changeset publish",
-        "version-packages": "changeset version && pnpm i --no-frozen-lockfile && git add ."
+        "publint": "pnpx publint",
+        "type-check": "tsc --noEmit"
     },
     "dependencies": {
-        "@vercel/kv": "^0.2.3"
+        "@upstash/redis": "^1.25.2",
+        "@vercel/kv": "^1.0.1"
     },
     "devDependencies": {
-        "@babel/core": "7.23.0",
-        "@changesets/cli": "2.26.2",
-        "@edge-runtime/types": "2.2.4",
-        "@types/node": "20.8.2",
-        "@vercel/style-guide": "^5.0.1",
-        "eslint": "8.50.0",
-        "husky": "8.0.3",
-        "lint-staged": "14.0.1",
-        "prettier": "3.0.3",
-        "tsup": "7.2.0",
-        "typescript": "5.2.2"
+        "@changesets/cli": "2.27.1",
+        "@types/node": "20.10.4",
+        "@vercel/style-guide": "^5.1.0",
+        "eslint": "8.55.0",
+        "prettier": "3.1.1",
+        "tsup": "8.0.1",
+        "typescript": "5.3.3"
     },
     "engines": {
         "node": ">=14.6"
