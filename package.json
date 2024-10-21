@@ -1,11 +1,11 @@
 {
     "name": "upstash-kv",
-    "version": "1.0.1",
+    "version": "3.0.0",
     "description": "Simple Upstash Redis client based on @vercel/kv",
-    "homepage": "https://github.com/destroyerxyz/upstash-kv.git",
+    "homepage": "https://github.com/CodeWithShreyans/upstash-kv.git",
     "repository": {
         "type": "git",
-        "url": "https://github.com/destroyerxyz/upstash-kv.git"
+        "url": "https://github.com/CodeWithShreyans/upstash-kv.git"
     },
     "license": "Apache-2.0",
     "sideEffects": false,
@@ -39,17 +39,17 @@
         "type-check": "tsc --noEmit"
     },
     "dependencies": {
-        "@upstash/redis": "^1.25.2",
-        "@vercel/kv": "^1.0.1"
+        "@upstash/redis": "^1.34.3",
+        "@vercel/kv": "^3.0.0"
     },
     "devDependencies": {
-        "@changesets/cli": "2.27.1",
-        "@types/node": "20.10.4",
-        "@vercel/style-guide": "^5.1.0",
-        "eslint": "8.55.0",
-        "prettier": "3.1.1",
-        "tsup": "8.0.1",
-        "typescript": "5.3.3"
+        "@changesets/cli": "2.27.9",
+        "@types/node": "22.7.7",
+        "@vercel/style-guide": "^6.0.0",
+        "eslint": "9.13.0",
+        "prettier": "3.3.3",
+        "tsup": "8.3.0",
+        "typescript": "5.6.3"
     },
     "engines": {
         "node": ">=14.6"
